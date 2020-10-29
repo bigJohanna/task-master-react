@@ -1,4 +1,6 @@
 import React from 'react'
+import Timer from './Timer'
+
 
 const TableHeader = () => {
     return (
@@ -20,6 +22,7 @@ const TableBody = (props) => {
                 <td>
                     <button onClick={() => props.removeCharacter(index)}>Delete</button>
                 </td>
+                <td><Timer /></td>
             </tr>
         )
     });
