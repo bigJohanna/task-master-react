@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 class Form extends Component {
     initialState = {
         task: '',
-        time: '00:00',
+        time: 0,
     }
 
     state = this.initialState
@@ -14,9 +14,14 @@ class Form extends Component {
         })
     }
 
+    submitForm = () => {
+        this.props.handleSubmit(this.state)
+        this.setState(this.initialState)
+    }
+
 
     render() {
-        const {task, time} = this.state;
+        const {task} = this.state;
 
         return (
             <form>
@@ -27,21 +32,11 @@ class Form extends Component {
                     id="task"
                     value={task}
                     onChange={this.handleChange}/>
-                <label htmlFor="time">Time</label>
-                <input
-                    type="text"
-                    name="time"
-                    id="time"
-                    value={time}
-                    />
                 <input type="button" value="Submit" onClick={this.submitForm} />
             </form>
         );
     }
-    submitForm = () => {
-        this.props.handleSubmit(this.state)
-        this.setState(this.initialState)
-    }
+
 }
 
 export default Form
