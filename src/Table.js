@@ -6,8 +6,8 @@ const TableHeader = () => {
     return (
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Job</th>
+            <th>Task</th>
+            <th>Time</th>
         </tr>
         </thead>
     )
@@ -17,8 +17,8 @@ const TableBody = (props) => {
     const rows = props.characterData.map((row,index) => {
         return (
             <tr key={index}>
-                <td>{row.name}</td>
-                <td>{row.job}</td>
+                <td>{row.task}</td>
+                <td>{row.time}</td>
                 <td>
                     <button onClick={() => props.removeCharacter(index)}>Delete</button>
                 </td>
