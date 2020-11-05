@@ -1,34 +1,46 @@
 import React, {Component} from 'react'
 
-class Timer extends Component{
-    constructor(props){
+//class component
+class Timer extends Component {
+    constructor(props) {
         super(props)
         this.state = {
             time: 0
         }
         this.startTimer = this.startTimer.bind(this)
         this.stopTimer = this.stopTimer.bind(this)
+        this.resetTimer = this.resetTimer.bind(this)
     }
 
     startTimer() {
         this.timer = setInterval(() => this.setState({
-            time: this.state.time +1
+            time: this.state.time + 1
         }), 1000)
-        console.log(this.state.time)
     }
+
     stopTimer() {
         clearInterval(this.timer)
-        console.log("stop")
+        this.props.reportNumber(this.state.time)
+        this.resetTimer()
+        //A function that I pass down through props to the child
+        //when stopTimer is invoked, it "pulls the string" to invoke reportnumber and sends time tp parent
+    }
+
+    resetTimer = () => {
+        this.setState({time:0})
     }
 
 
-    render(){
-            const {time} = this.state;
+    render() {
         return (
             <tr>
                 <td>timer: {this.state.time}</td>
-                <td><button onClick={this.startTimer}>start</button></td>
-                <td><button onClick={this.stopTimer}>stop</button></td>
+                <td>
+                    <button onClick={this.startTimer}>start</button>
+                </td>
+                <td>
+                    <button onClick={this.stopTimer}>stop</button>
+                </td>
             </tr>
         )
     }
