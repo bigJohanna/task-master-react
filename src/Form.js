@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 class Form extends Component {
     initialState = {
-        task: '',
+        task: "",
         time: 0,
     }
 
@@ -32,7 +32,7 @@ class Form extends Component {
                     id="task"
                     value={task}
                     onChange={this.handleChange}/>
-                <input type="button" value="Submit" onClick={this.submitForm} />
+                <input type="button" value="+" onClick={this.submitForm} />
             </form>
         );
     }

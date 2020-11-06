@@ -28,7 +28,7 @@ const TableBody = (props) => {
                 <td>{row.time}</td>
                 <td><Timer reportNumber={(time) => props.updateTime(time, index)}/></td>
                 <td>
-                    <button onClick={() => props.removeCharacter(index)}>Delete task</button>
+                    <button onClick={() => props.removeCharacter(index)}>-</button>
                 </td>
 
             </tr>

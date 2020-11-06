@@ -34,7 +34,6 @@ class App extends Component {
     }
 
     handleTotalTime = (time, index) => {
-
         const tasks = this.state.characters;
         tasks[index].time += time;
         this.setState({tasks: this.state});
